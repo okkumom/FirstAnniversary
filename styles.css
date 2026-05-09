@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -203,6 +204,7 @@ h3 {
 
 .section {
   padding: clamp(58px, 9vw, 112px) clamp(20px, 5vw, 72px);
+  scroll-margin-top: 84px;
 }
 
 .section-tinted {
@@ -446,6 +448,7 @@ h3 {
 .letter-section {
   padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 72px);
   background: var(--mint);
+  scroll-margin-top: 84px;
 }
 
 .letter {
@@ -520,6 +523,15 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 126px;
+  }
+
+  .section,
+  .letter-section {
+    scroll-margin-top: 126px;
+  }
+
   .site-header {
     align-items: flex-start;
     flex-direction: column;
