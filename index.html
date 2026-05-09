@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>옥금방 1주년 기념관</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="옥금방 첫 화면으로 이동">옥금방</a>
+      <nav class="top-nav" aria-label="주요 메뉴">
+        <a href="#stats">기록</a>
+        <a href="#resources">자료</a>
+        <a href="#parties">모임</a>
+        <a href="#gallery">사진</a>
+        <a href="#letter">한마디</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="옥금방 1주년 축하">
+        <div class="hero-media" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?auto=format&fit=crop&w=1400&q=80" alt="" />
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow">2025.05 - 2026.05</p>
+          <h1>옥금방<br />첫 번째 생일</h1>
+          <p class="hero-copy">
+            육아는 각자 하지만, 수다는 함께했다. 어느새 우리 육아방이 1살이 되었습니다.
+            뱀띠 아가들과 엄마들이 함께 만든 따뜻하고 유쾌한 365일의 기록입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#stats">1년 기록 보기</a>
+            <a class="secondary-action" href="#resources">육아 자료 보기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="소개">
+        <p>
+          단순한 자료 모음이 아니라, 옥금방 사람들이 “우리 진짜 많이 했다!” 하고
+          웃으며 돌아볼 수 있는 작은 온라인 기념관입니다.
+        </p>
+      </section>
+
+      <section id="stats" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">365 Days Report</p>
+          <h2>숫자로 보는 옥금방 1년</h2>
+        </div>
+        <div class="stat-grid" id="statGrid"></div>
+      </section>
+
+      <section id="resources" class="section section-tinted">
+        <div class="section-heading">
+          <p class="eyebrow">Shared Notes</p>
+          <h2>우리가 만든 육아 자료들</h2>
+          <p>방장의 호기심이 모두의 자료가 되었습니다.</p>
+        </div>
+        <div class="resource-grid" id="resourceGrid"></div>
+      </section>
+
+      <section id="parties" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Memory Timeline</p>
+          <h2>함께했던 모임</h2>
+          <p>처음엔 어색했지만, 이제는 돗자리만 펴도 모임이 되는 사이.</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section id="gallery" class="section section-dark">
+        <div class="section-heading">
+          <p class="eyebrow">Photo Album</p>
+          <h2>사진으로 보는 모임 갤러리</h2>
+        </div>
+        <div class="filter-bar" id="filterBar" aria-label="사진 필터"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
+
+      <section id="awards" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Tiny Awards</p>
+          <h2>올해의 옥금방 어워즈</h2>
+          <p>상금은 없지만 명예는 있습니다. 아마도요.</p>
+        </div>
+        <div class="award-grid" id="awardGrid"></div>
+      </section>
+
+      <section id="letter" class="letter-section">
+        <div class="letter">
+          <p class="eyebrow">From 방장</p>
+          <h2>방장의 한마디</h2>
+          <p>
+            처음엔 작은 단톡방이었는데, 어느새 서로의 육아를 응원하는 공간이 되었습니다.
+            함께 질문하고, 나누고, 모임에서 웃어준 모든 분들께 진심으로 고맙습니다.
+          </p>
+          <p>
+            앞으로도 부담 없이, 따뜻하게, 오래 함께해요. 옥금방의 다음 1년도 기대합니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기" hidden>
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="닫기">×</button>
+      <img id="lightboxImage" src="" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
