@@ -132,8 +132,6 @@ const photoAlbums = [
       { title: "송년회 포스터", src: "자료/송년회_포스터.jpg" },
       { title: "송년회 게임", src: "자료/송년회_게임.jpg" },
       { title: "송년회 럭키박스", src: "자료/송년회_럭키박스.jpg" },
-      { title: "송년회 동영상", src: "자료/송년회_동영상.jpg" },
-      { title: "송년회 좌석배치도", src: "자료/11_기획단 배포용_좌석배치도.jpg" },
     ],
   },
   {
@@ -141,7 +139,6 @@ const photoAlbums = [
     desc: "새해 첫 모임의 반가운 얼굴들과 단체 기록.",
     photos: [
       { title: "1월 정모 1", src: "자료/2026.01월_1.jpg" },
-      { title: "1월 정모 2", src: "자료/2026.01월_2.jpg" },
       { title: "1월 전체 사진", src: "자료/1월_전체.jpg" },
     ],
   },
@@ -150,7 +147,6 @@ const photoAlbums = [
     desc: "두 번째 정모의 분위기와 함께 남은 장면들.",
     photos: [
       { title: "2월 정모 1", src: "자료/2026.02월_1.jpg" },
-      { title: "2월 정모 2", src: "자료/2026.02월_2.png" },
       { title: "2월 정모", src: "자료/2월.jpg" },
     ],
   },
@@ -160,8 +156,6 @@ const photoAlbums = [
     photos: [
       { title: "3월 정모", src: "자료/2026.03월.png" },
       { title: "3월 닭갈비", src: "자료/3월 닭갈비.jpg" },
-      { title: "3월 게임", src: "자료/3월 게임.png" },
-      { title: "3월 제비뽑기", src: "자료/3월 제비뽑기.jpg" },
     ],
   },
 ];
@@ -194,7 +188,6 @@ const awards = [
 ];
 
 const statGrid = document.querySelector("#statGrid");
-const yearMiniTimeline = document.querySelector("#yearMiniTimeline");
 const resourceGrid = document.querySelector("#resourceGrid");
 const timeline = document.querySelector("#timeline");
 const photoAlbum = document.querySelector("#photoAlbum");
@@ -207,52 +200,6 @@ const lightboxClose = document.querySelector("#lightboxClose");
 statGrid.innerHTML = stats
   .map((item) => `<article class="stat-card"><strong>${item.value}</strong><span>${item.label}</span></article>`)
   .join("");
-
-function getDateParts(dateText) {
-  const match = dateText.match(/(\d{2})\.(\d{2})\.(\d{2})/);
-  if (!match) return { sort: 0, label: dateText };
-
-  const [, year, month, day] = match;
-  return {
-    sort: Number(`20${year}${month}${day}`),
-    label: `${year}.${month}.${day}`,
-  };
-}
-
-const yearEvents = [
-  ...resources.map((item) => ({ ...getDateParts(item.date), type: "자료", title: item.title })),
-  ...parties.map((item) => ({ ...getDateParts(item.date), type: "모임", title: item.title })),
-].sort((a, b) => a.sort - b.sort);
-
-function renderMiniTimelineRow(type) {
-  return yearEvents
-    .filter((item) => item.type === type)
-    .map(
-      (item) => `
-        <article class="mini-event mini-event-${type === "자료" ? "resource" : "party"}">
-          <span class="mini-event-date">${item.label}</span>
-          <strong>${item.title}</strong>
-        </article>
-      `
-    )
-    .join("");
-}
-
-yearMiniTimeline.innerHTML = `
-  <div class="mini-timeline-heading">
-    <strong>한눈에 보는 옥금방 1년 기록</strong>
-  </div>
-  <div class="mini-timeline-rows">
-    <section class="mini-timeline-row mini-timeline-row-resource" aria-label="자료 제작 타임라인">
-      <div class="mini-row-label">자료</div>
-      <div class="mini-timeline-track">${renderMiniTimelineRow("자료")}</div>
-    </section>
-    <section class="mini-timeline-row mini-timeline-row-party" aria-label="모임 타임라인">
-      <div class="mini-row-label">모임</div>
-      <div class="mini-timeline-track">${renderMiniTimelineRow("모임")}</div>
-    </section>
-  </div>
-`;
 
 resourceGrid.innerHTML = resources
   .map(
@@ -275,15 +222,15 @@ resourceGrid.innerHTML = resources
 timeline.innerHTML = parties
   .map(
     (item) => `
-      <article class="timeline-item">
-        <div class="timeline-card">
+      <article class="party-card">
+        <div class="party-image">
           <img src="${item.image}" alt="${item.title}" loading="lazy" />
-          <div>
-            <p class="date">${item.date} · ${item.people}</p>
-            <h3>${item.title}</h3>
-            <p class="place">${item.place}</p>
-            <p>${item.desc}</p>
-          </div>
+        </div>
+        <div class="party-body">
+          <p class="date">${item.date} · ${item.people}</p>
+          <h3>${item.title}</h3>
+          <p class="place">${item.place}</p>
+          <p>${item.desc}</p>
         </div>
       </article>
     `
